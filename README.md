@@ -1,2 +1,2 @@
 # recipes-api
-Um projeto sobre receitas
+Um projeto sobre receitas.
