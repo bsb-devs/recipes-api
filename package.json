@@ -5,11 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "build": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bsb-devs/recipes-api.git"
+  },
+  "engines": {
+    "node": "10.x.x",
+    "npm": "6.x.x",
+    "yarn": "1.x.x"
   },
   "keywords": [],
   "author": "",
@@ -20,12 +26,13 @@
   "homepage": "https://github.com/bsb-devs/recipes-api#readme",
   "dependencies": {
     "body-parse": "^0.1.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.11.12",
-    "nodemon": "^2.0.7"
+    "mongoose": "^5.11.12"
   },
   "devDependencies": {
     "eslint": "^7.17.0",
-    "eslint-plugin-react": "^7.22.0"
+    "eslint-plugin-react": "^7.22.0",
+    "nodemon": "^2.0.7"
   }
 }

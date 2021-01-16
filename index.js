@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -11,4 +12,4 @@ app.use(bodyParser.urlencoded({ extended: false }));
 require('./src/controllers/userController')(app);
 require('./src/controllers/recipeController')(app);
 
-app.listen(3001);
+app.listen(process.env.PORT || 3001);
