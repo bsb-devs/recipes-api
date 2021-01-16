@@ -1,0 +1,30 @@
+//User
+{
+	"name":"admin",
+	"email": "admin@admin.com",
+	"password": "admin"
+}
+//Recipe
+{
+	"title": "Batata recheada",
+	"description": "Minha comida favorita",
+	"difficulty": 3,
+	"tags": [
+		"salgado",
+		"batata",
+		"assado"
+	],
+	"servings": 1,
+	"estimatedTime": "1 hora",
+	"ingredients": [
+		{
+			"name":"batata grande",
+			"qty": "1"
+		},
+		{
+			"name":"Strogonof",
+			"qty": "10 colheres"
+		}
+	],
+	"directions":"Assar a batata e rechear"
+}

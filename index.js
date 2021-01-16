@@ -9,5 +9,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 require('./src/controllers/userController')(app);
+require('./src/controllers/recipeController')(app);
 
-app.listen(3000);
+app.listen(3001);
