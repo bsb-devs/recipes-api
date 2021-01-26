@@ -13,7 +13,7 @@
     "url": "git+https://github.com/bsb-devs/recipes-api.git"
   },
   "engines": {
-    "node": "10.x.x",
+    "node": "14.x.x",
     "npm": "6.x.x",
     "yarn": "1.x.x"
   },
@@ -25,10 +25,13 @@
   },
   "homepage": "https://github.com/bsb-devs/recipes-api#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parse": "^0.1.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.11.12"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.12",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "eslint": "^7.17.0",

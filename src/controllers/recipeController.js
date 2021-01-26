@@ -2,12 +2,13 @@ const express = require('express');
 
 const Recipe = require('../models/recipeModel');
 const User = require('../models/userModel');
+const auth = require('../middlewares/auth');
 
 const RecipeController = express.Router();
 
-RecipeController.post('/register/:userId', async (req, res) => {
+RecipeController.post('/register', auth, async (req, res) => {
     try {
-      const user = await User.findById(req.params.userId); //Pegando Id do usuario da url
+      const user = await User.findById(req.userId); //Pegando Id do usuario da url
 			const recipe = await Recipe.create({
         ...req.body,
         user : user, 
@@ -46,7 +47,7 @@ RecipeController.get('/findAll', async (req, res) => {
   }
 });
 
-RecipeController.delete('/delete/:recipeId', async (req, res) => {
+RecipeController.delete('/delete/:recipeId', auth, async (req, res) => {
   try {
     const recipe = await Recipe.findByIdAndDelete(req.params.recipeId); //Pegando Id da receita da url
     
@@ -56,7 +57,7 @@ RecipeController.delete('/delete/:recipeId', async (req, res) => {
   }
 });
 
-RecipeController.put('/update/:recipeId', async (req, res) => {
+RecipeController.put('/update/:recipeId', auth, async (req, res) => {
   try {
     const recipe = req.params.recipeId
     const update = req.body
