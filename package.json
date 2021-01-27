@@ -13,7 +13,7 @@
     "url": "git+https://github.com/bsb-devs/recipes-api.git"
   },
   "engines": {
-    "node": "14.x.x",
+    "node": "10.x.x",
     "npm": "6.x.x",
     "yarn": "1.x.x"
   },

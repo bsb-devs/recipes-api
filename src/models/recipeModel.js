@@ -3,32 +3,32 @@ const mongoose = require('mongoose');
 const RecipeSchema = new mongoose.Schema({
 	title: {
 		type: String,
-		required: true,
+		require: true,
 	},
 	photo: {
 		type: String,
 	},
 	description: {
 		type: String,
-		required: true,
+		require: true,
 	},
 	difficulty: {
 		type: Number,
-		required: true,
+		require: true,
 	},
 	tags: [
 		{
 		type: String,
-		required: true,
+		require: true,
 		},
 	],
 	servings: {
 		type: Number,
-		required: true,
+		require: true,
 	},
 	estimatedTime: {
 		type: String,
-		required: true,
+		require: true,
 	},
 	createdAt: {
 		type: Date,
@@ -40,8 +40,9 @@ const RecipeSchema = new mongoose.Schema({
 	},
 	ingredients: [
 		{
-			name: {
-				type: String,
+			ingredient: {
+				type: mongoose.Schema.Types.ObjectId,
+				ref: 'Ingredients',
 				require: true,
 			},
 			qty: {
@@ -52,7 +53,7 @@ const RecipeSchema = new mongoose.Schema({
 	],
 	directions: {
 		type: String,
-		required: true,
+		require: true,
 	},
 });
 

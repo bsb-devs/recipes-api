@@ -1,6 +1,7 @@
 const express = require('express');
 
 const Recipe = require('../models/recipeModel');
+const Ingredients = require('../models/ingredientModel');
 const User = require('../models/userModel');
 const auth = require('../middlewares/auth');
 
@@ -75,6 +76,7 @@ RecipeController.put('/update/:recipeId', auth, async (req, res) => {
     return res.status(400).send({ error: `${err}` })
   }
 });
+
 
 
 module.exports = app => app.use('/recipe', RecipeController);
