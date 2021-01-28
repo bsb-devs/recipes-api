@@ -11,5 +11,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 require('./src/controllers/userController')(app);
 require('./src/controllers/recipeController')(app);
+require('./src/controllers/ingredientController')(app);
 
 app.listen(process.env.PORT || 3001);

@@ -8,13 +8,17 @@ const IngredientControler = express.Router();
 
 
 IngredientControler.post('/register', async(req, res)=>{
-    const { ingredient } = req.body;
+    const { name } = req.body;
+    let lowername = name.toLowerCase(); 
     try{  
-        const ing = await Ingredients.findOne({ingredient});
+        const ing = await Ingredients.findOne({name:lowername});
         if(ing)
             return res.status(200).send(ing);
-        const newIngredient = await Ingredients.create(req.body);   
-        return res.status(201).send(ingredient)
+        const newIngredient = await Ingredients.create({
+            ...req.body,
+            name: lowername, 
+        });   
+        return res.status(201).send(newIngredient)
 
         
     } catch(err) {
@@ -23,7 +27,7 @@ IngredientControler.post('/register', async(req, res)=>{
 });
 
 
-Ingredientconstroller.get('/findAll', async (req, res) => {
+IngredientControler.get('/findAll', async (req, res) => {
     try{
         const ingredients = await Ingredients.find()
 
@@ -34,7 +38,7 @@ Ingredientconstroller.get('/findAll', async (req, res) => {
     }
 });
 
-Ingredientconstroller.get('/findById', async (req, res) => {
+IngredientControler.get('/findById/:IngredientId', async (req, res) => {
     try{
         const ingredients = await Ingredients.findById(req.params.IngredientId).populate([
             { path: 'recipes'},
@@ -47,9 +51,9 @@ Ingredientconstroller.get('/findById', async (req, res) => {
     }
 });
 
-Ingredientconstroller.delete('/delete/:ingredientId', async (req, res) => {
+IngredientControler.delete('/delete/:IngredientId', async (req, res) => {
     try{
-        const ingredients = await Ingredients.findByIdAndDelete(req.params.userId);
+        const ingredients = await Ingredients.findByIdAndDelete(req.params.IngredientId);
 
         return res.status(200).send(ingredients._id)
     }
@@ -59,7 +63,7 @@ Ingredientconstroller.delete('/delete/:ingredientId', async (req, res) => {
 });
 
 
-Ingredientconstroller.put('/update/:ingredientId', async (req, res) => {
+IngredientControler.put('/update/:IngredientId', async (req, res) => {
     try{
         
         const ingredients = req.params.IngredientId
@@ -74,7 +78,7 @@ Ingredientconstroller.put('/update/:ingredientId', async (req, res) => {
         );
 
 
-        return res.status(200).send(updateRecipe)
+        return res.status(200).send(updateIngrredient)
     }
     catch(err){
         return res.status(400).send({error: `${err}` })
